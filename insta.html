@@ -2,591 +2,689 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Campus Mate – Instagram Dikey Posts v2</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Campus Mate – Posts Figma Ready</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #6C5CE7;
-    --primary-light: #A29BFE;
-    --accent: #FF7675;
-    --green: #00B894;
-    --amber: #FDCB6E;
-    --bg: #0A0A0F;
-    --surface: #13131A;
-    --text: #F0F0F8;
-    --text-muted: #8888AA;
-    --border: rgba(108,92,231,0.25);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:#060609; font-family:'DM Sans',sans-serif; padding:40px 24px 80px; color:var(--text); }
-  h1.page-title { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#444466; text-align:center; margin-bottom:6px; }
-  p.page-sub { text-align:center; font-size:12px; color:#333352; margin-bottom:40px; }
-  .scroll-wrap { overflow-x:auto; overflow-y:hidden; }
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(4, 1080px);
-    gap:24px;
-    width:max-content;
-    transform:scale(0.22);
-    transform-origin:top left;
-    margin-bottom:-4230px;
-  }
+  body { background:#050508; margin:0; padding:48px 32px 100px; font-family:'DM Sans',sans-serif; }
+  .page-label { text-align:center; font-family:'Sora',sans-serif; font-size:13px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#33334d; margin-bottom:8px; }
+  .page-sub { text-align:center; font-size:12px; color:#22223a; margin-bottom:48px; }
+  .grid { display:grid; grid-template-columns:repeat(4, 1080px); gap:28px; width:max-content; transform:scale(0.21); transform-origin:top left; margin-bottom:-4500px; }
 
-  /* BASE */
-  .post { width:1080px; height:1350px; position:relative; overflow:hidden; flex-shrink:0; }
-  .post::after {
-    content:''; position:absolute; inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events:none; z-index:10;
-  }
-  .logo-mark { position:absolute; top:64px; left:72px; display:flex; align-items:center; gap:14px; z-index:5; }
-  .logo-mark .icon { width:52px; height:52px; background:rgba(255,255,255,0.1); border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:26px; border:1px solid rgba(255,255,255,0.15); }
-  .logo-mark .name { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:rgba(255,255,255,0.8); letter-spacing:-0.3px; }
-  .tag { position:absolute; top:64px; right:72px; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; letter-spacing:2px; text-transform:uppercase; padding:10px 22px; border-radius:40px; z-index:5; }
-
-  /* ═══ POST 1 — Tanıtım ═══ */
-  .p1 { background:linear-gradient(160deg,#0D0B1E 0%,#1A1040 55%,#0D0B1E 100%); }
-  .p1 .orb-a { position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(108,92,231,0.45) 0%,transparent 70%); top:-200px; right:-250px; }
-  .p1 .orb-b { position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(255,118,117,0.2) 0%,transparent 70%); bottom:-100px; left:-150px; }
-  .p1 .content { position:absolute; bottom:120px; left:72px; right:72px; z-index:5; }
-  .p1 .eyebrow { font-family:'Sora',sans-serif; font-size:18px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:28px; }
-  .p1 h2 { font-family:'Sora',sans-serif; font-size:130px; font-weight:900; line-height:0.88; letter-spacing:-6px; color:#fff; margin-bottom:40px; }
-  .p1 h2 em { font-style:normal; color:var(--primary-light); }
-  .p1 p { font-size:28px; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.6; max-width:680px; }
-  .p1 .tag { background:rgba(108,92,231,0.2); color:var(--primary-light); border:1px solid rgba(108,92,231,0.4); }
-
-  /* ═══ POST 2 — Nasıl Çalışır ═══ */
-  .p2 { background:#080810; }
-  .p2 .top-fade { position:absolute; top:0; left:0; right:0; height:500px; background:linear-gradient(180deg,#1A1040 0%,transparent 100%); }
-  .p2 .big-num { position:absolute; right:20px; top:80px; font-family:'Sora',sans-serif; font-size:320px; font-weight:900; color:rgba(108,92,231,0.05); line-height:1; letter-spacing:-15px; z-index:1; }
-  .p2 .content { position:absolute; top:140px; left:72px; right:72px; z-index:5; }
-  .p2 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:22px; }
-  .p2 h2 { font-family:'Sora',sans-serif; font-size:100px; font-weight:900; line-height:0.92; letter-spacing:-5px; color:#fff; margin-bottom:56px; }
-  .p2 h2 span { color:var(--primary-light); }
-  .p2 .cards { display:flex; flex-direction:column; gap:20px; }
-  .p2 .card-row { background:rgba(255,255,255,0.04); border:1px solid rgba(108,92,231,0.2); border-radius:22px; padding:30px 34px; display:flex; align-items:center; gap:26px; }
-  .p2 .num { font-family:'Sora',sans-serif; font-size:52px; font-weight:900; color:rgba(108,92,231,0.22); min-width:76px; }
-  .p2 .txt h4 { font-family:'Sora',sans-serif; font-size:26px; font-weight:700; color:#fff; margin-bottom:6px; }
-  .p2 .txt p { font-size:18px; color:var(--text-muted); line-height:1.5; }
-  .p2 .tag { background:rgba(0,184,148,0.15); color:#00B894; border:1px solid rgba(0,184,148,0.3); }
-
-  /* ═══ POST 3 — Eşleşme ═══ */
-  .p3 { background:linear-gradient(160deg,#1A0A1A 0%,#0F0A20 100%); }
-  .p3 .heart-bg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:700px; opacity:0.03; z-index:1; line-height:1; }
-  .p3 .content { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:72px; z-index:5; }
-  .p3 .icon-big { font-size:140px; margin-bottom:40px; }
-  .p3 h2 { font-family:'Sora',sans-serif; font-size:112px; font-weight:900; letter-spacing:-6px; color:#fff; line-height:0.88; margin-bottom:32px; }
-  .p3 h2 em { font-style:normal; background:linear-gradient(135deg,#FF7675,#FDCB6E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  .p3 p { font-size:26px; color:rgba(255,255,255,0.45); font-weight:300; line-height:1.6; max-width:640px; margin-bottom:56px; }
-  .p3 .pill { display:inline-flex; align-items:center; gap:12px; background:rgba(255,118,117,0.1); border:1px solid rgba(255,118,117,0.3); border-radius:40px; padding:20px 40px; font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#FF7675; }
-  .p3 .tag { background:rgba(255,118,117,0.15); color:#FF7675; border:1px solid rgba(255,118,117,0.3); }
-
-  /* ═══ POST 4 — Swipe ═══ */
-  .p4 { background:#08080F; }
-  .p4 .bg-lines { position:absolute; inset:0; z-index:1; background:repeating-linear-gradient(0deg,transparent,transparent 99px,rgba(108,92,231,0.04) 100px); }
-  .p4 .big-stat { position:absolute; right:10px; bottom:60px; font-family:'Sora',sans-serif; font-size:320px; font-weight:900; color:rgba(253,203,110,0.05); line-height:1; letter-spacing:-15px; z-index:2; }
-  .p4 .content { position:absolute; inset:0; padding:80px 72px; z-index:5; display:flex; flex-direction:column; justify-content:center; }
-  .p4 .badge { display:inline-flex; align-items:center; gap:8px; margin-bottom:36px; background:rgba(253,203,110,0.1); border:1px solid rgba(253,203,110,0.3); border-radius:40px; padding:12px 24px; width:fit-content; font-family:'Sora',sans-serif; font-size:15px; font-weight:700; color:var(--amber); letter-spacing:1px; text-transform:uppercase; }
-  .p4 h2 { font-family:'Sora',sans-serif; font-size:108px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.92; margin-bottom:36px; }
-  .p4 h2 span { color:var(--amber); }
-  .p4 .divider { width:70px; height:5px; background:var(--amber); border-radius:4px; margin-bottom:36px; }
-  .p4 p { font-size:26px; color:rgba(255,255,255,0.4); line-height:1.6; max-width:600px; margin-bottom:32px; }
-  .p4 .info { font-size:22px; color:rgba(255,255,255,0.55); font-weight:500; }
-  .p4 .tag { background:rgba(253,203,110,0.12); color:var(--amber); border:1px solid rgba(253,203,110,0.3); }
-
-  /* ═══ POST 5 — Anlık Notlar ═══ */
-  .p5 { background:linear-gradient(160deg,#0A1A0A 0%,#0A0F1A 100%); }
-  .p5 .glow { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(0,184,148,0.2) 0%,transparent 70%); top:-150px; left:-100px; }
-  .p5 .content { position:absolute; bottom:90px; left:72px; right:72px; z-index:5; }
-  .p5 .label { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:20px; }
-  .p5 h2 { font-family:'Sora',sans-serif; font-size:108px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:20px; }
-  .p5 h2 span { color:var(--green); }
-  .p5 p { font-size:24px; color:rgba(255,255,255,0.4); margin-bottom:36px; line-height:1.5; }
-  .p5 .note-cards { display:flex; flex-direction:column; gap:14px; }
-  .p5 .note { background:rgba(0,184,148,0.07); border:1px solid rgba(0,184,148,0.2); border-radius:18px; padding:20px 26px; display:flex; align-items:center; gap:16px; }
-  .p5 .note .dot { width:10px; height:10px; border-radius:50%; background:var(--green); flex-shrink:0; }
-  .p5 .note span { font-size:20px; color:rgba(255,255,255,0.72); line-height:1.4; }
-  .p5 .note .time { margin-left:auto; font-size:15px; color:rgba(255,255,255,0.28); white-space:nowrap; }
-  .p5 .tag { background:rgba(0,184,148,0.12); color:var(--green); border:1px solid rgba(0,184,148,0.3); }
-
-  /* ═══ POST 6 — Etkinlikler ═══ */
-  .p6 { background:#080810; }
-  .p6 .top-block { position:absolute; top:0; left:0; right:0; height:520px; background:linear-gradient(180deg,#1A1040 0%,#0D0B1E 100%); }
-  .p6 .content { position:absolute; inset:0; padding:80px 72px; z-index:5; }
-  .p6 .icon-row { display:flex; gap:16px; margin-bottom:32px; }
-  .p6 .icon-box { width:64px; height:64px; border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:30px; background:rgba(108,92,231,0.15); border:1px solid rgba(108,92,231,0.3); }
-  .p6 h2 { font-family:'Sora',sans-serif; font-size:100px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.9; margin-bottom:44px; }
-  .p6 h2 em { font-style:normal; color:var(--primary-light); }
-  .p6 .event-list { display:flex; flex-direction:column; gap:16px; }
-  .p6 .event { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:18px; padding:24px 28px; display:flex; align-items:center; justify-content:space-between; }
-  .p6 .event .left { display:flex; align-items:center; gap:20px; }
-  .p6 .event .emoji { font-size:34px; }
-  .p6 .event .info h4 { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; }
-  .p6 .event .info p { font-size:16px; color:var(--text-muted); margin-top:3px; }
-  .p6 .event .cat { font-family:'Sora',sans-serif; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:9px 18px; border-radius:20px; background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.25); white-space:nowrap; }
-  .p6 .tag { background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.3); }
-
-  /* ═══ POST 7 — Ders Arkadaşı ═══ */
-  .p7 { background:linear-gradient(150deg,#0A0F1A 0%,#0F0A1A 100%); }
-  .p7 .grid-bg { position:absolute; inset:0; z-index:1; background-image:linear-gradient(rgba(108,92,231,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,0.06) 1px,transparent 1px); background-size:90px 90px; }
-  .p7 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p7 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:20px; }
-  .p7 h2 { font-family:'Sora',sans-serif; font-size:112px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:48px; }
-  .p7 h2 em { font-style:normal; color:var(--primary-light); }
-  .p7 .features { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  .p7 .feat { background:rgba(255,255,255,0.04); border:1px solid rgba(108,92,231,0.2); border-radius:22px; padding:30px; }
-  .p7 .feat .ico { font-size:40px; margin-bottom:14px; }
-  .p7 .feat h4 { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; margin-bottom:8px; }
-  .p7 .feat p { font-size:17px; color:var(--text-muted); line-height:1.5; }
-  .p7 .tag { background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.3); }
-
-  /* ═══ POST 8 — Güvenlik ═══ */
-  .p8 { background:#08080F; }
-  .p8 .shield-bg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:800px; opacity:0.025; line-height:1; z-index:1; }
-  .p8 .content { position:absolute; inset:0; z-index:5; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:72px; }
-  .p8 .shield-icon { width:140px; height:140px; border-radius:38px; background:rgba(0,184,148,0.1); border:1px solid rgba(0,184,148,0.3); display:flex; align-items:center; justify-content:center; font-size:68px; margin-bottom:44px; }
-  .p8 h2 { font-family:'Sora',sans-serif; font-size:100px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.92; margin-bottom:24px; }
-  .p8 h2 span { color:var(--green); }
-  .p8 p { font-size:24px; color:rgba(255,255,255,0.4); line-height:1.6; max-width:680px; margin-bottom:52px; }
-  .p8 .list { display:flex; flex-direction:column; gap:18px; width:100%; max-width:740px; }
-  .p8 .item { display:flex; align-items:center; gap:20px; text-align:left; background:rgba(0,184,148,0.06); border:1px solid rgba(0,184,148,0.15); border-radius:18px; padding:22px 26px; }
-  .p8 .item .check { font-size:24px; flex-shrink:0; }
-  .p8 .item span { font-size:20px; color:rgba(255,255,255,0.68); }
-  .p8 .tag { background:rgba(0,184,148,0.12); color:var(--green); border:1px solid rgba(0,184,148,0.3); }
-
-  /* ═══ POST 9 — Leaderboard ═══ */
-  .p9 { background:linear-gradient(160deg,#120A00 0%,#1A1000 100%); }
-  .p9 .glow { position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(253,203,110,0.15) 0%,transparent 70%); top:-250px; right:-200px; }
-  .p9 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; }
-  .p9 .label { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--amber); margin-bottom:20px; }
-  .p9 h2 { font-family:'Sora',sans-serif; font-size:108px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.92; margin-bottom:48px; }
-  .p9 h2 em { font-style:normal; color:var(--amber); }
-  .p9 .rows { display:flex; flex-direction:column; gap:14px; }
-  .p9 .row { display:flex; align-items:center; gap:22px; background:rgba(255,255,255,0.04); border:1px solid rgba(253,203,110,0.08); border-radius:18px; padding:22px 28px; }
-  .p9 .row.gold { background:rgba(253,203,110,0.08); border-color:rgba(253,203,110,0.3); }
-  .p9 .row .rank { font-family:'Sora',sans-serif; font-size:34px; font-weight:900; min-width:56px; }
-  .p9 .row.gold .rank { color:var(--amber); }
-  .p9 .row:not(.gold) .rank { color:rgba(255,255,255,0.18); }
-  .p9 .row .avatar { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
-  .p9 .row .uname { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; }
-  .p9 .row .faculty { font-size:15px; color:var(--text-muted); margin-top:3px; }
-  .p9 .row .pts { margin-left:auto; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; color:var(--amber); white-space:nowrap; }
-  .p9 .tag { background:rgba(253,203,110,0.12); color:var(--amber); border:1px solid rgba(253,203,110,0.3); }
-
-  /* ═══ POST 10 — Kayıt ═══ */
-  .p10 { background:#080810; }
-  .p10 .stripe { position:absolute; left:0; top:0; bottom:0; width:9px; background:linear-gradient(180deg,var(--primary),var(--accent)); z-index:5; }
-  .p10 .content { position:absolute; inset:0; padding:80px 80px 80px 104px; z-index:5; display:flex; flex-direction:column; justify-content:center; }
-  .p10 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:24px; }
-  .p10 h2 { font-family:'Sora',sans-serif; font-size:100px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.9; margin-bottom:56px; }
-  .p10 .steps { display:flex; flex-direction:column; gap:32px; }
-  .p10 .step { display:flex; align-items:flex-start; gap:28px; }
-  .p10 .step .num { width:62px; height:62px; border-radius:17px; flex-shrink:0; background:rgba(108,92,231,0.15); border:1px solid rgba(108,92,231,0.35); display:flex; align-items:center; justify-content:center; font-family:'Sora',sans-serif; font-size:28px; font-weight:900; color:var(--primary-light); }
-  .p10 .step .txt h4 { font-family:'Sora',sans-serif; font-size:26px; font-weight:700; color:#fff; margin-bottom:6px; }
-  .p10 .step .txt p { font-size:18px; color:var(--text-muted); line-height:1.5; }
-  .p10 .tag { background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.3); }
-
-  /* ═══ POST 11 — Süper Beğeni ═══ */
-  .p11 { background:linear-gradient(160deg,#0A0A1F 0%,#150A20 100%); }
-  .p11 .star-bg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:900px; opacity:0.02; z-index:1; line-height:1; }
-  .p11 .content { position:absolute; inset:0; z-index:5; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:72px; }
-  .p11 .star-icon { font-size:140px; margin-bottom:36px; filter:drop-shadow(0 0 50px rgba(253,203,110,0.5)); }
-  .p11 h2 { font-family:'Sora',sans-serif; font-size:106px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.92; margin-bottom:24px; }
-  .p11 h2 em { font-style:normal; color:var(--amber); }
-  .p11 p { font-size:26px; color:rgba(255,255,255,0.42); line-height:1.5; max-width:680px; margin-bottom:52px; }
-  .p11 .vs-row { display:flex; gap:22px; width:100%; max-width:860px; }
-  .p11 .vs-card { flex:1; border-radius:26px; padding:34px 28px; text-align:left; border:1px solid; }
-  .p11 .vs-card.normal { background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.08); }
-  .p11 .vs-card.super { background:rgba(253,203,110,0.07); border-color:rgba(253,203,110,0.3); }
-  .p11 .vs-card .ico { font-size:40px; margin-bottom:14px; }
-  .p11 .vs-card h4 { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; margin-bottom:10px; }
-  .p11 .vs-card p { font-size:17px; color:var(--text-muted); line-height:1.5; margin:0; }
-  .p11 .tag { background:rgba(253,203,110,0.12); color:var(--amber); border:1px solid rgba(253,203,110,0.3); }
-
-  /* ═══ POST 12 — CTA ═══ */
-  .p12 { background:linear-gradient(145deg,#0D0B1E 0%,#1A1040 55%,#0D0B1E 100%); }
-  .p12 .orb { position:absolute; width:900px; height:900px; border-radius:50%; background:radial-gradient(circle,rgba(108,92,231,0.35) 0%,transparent 65%); top:50%; left:50%; transform:translate(-50%,-50%); }
-  .p12 .content { position:absolute; inset:0; z-index:5; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:72px; }
-  .p12 .pre { font-family:'Sora',sans-serif; font-size:17px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:28px; }
-  .p12 h2 { font-family:'Sora',sans-serif; font-size:128px; font-weight:900; letter-spacing:-7px; color:#fff; line-height:0.88; margin-bottom:28px; }
-  .p12 h2 em { font-style:normal; color:var(--primary-light); }
-  .p12 p { font-size:28px; color:rgba(255,255,255,0.4); font-weight:300; margin-bottom:56px; max-width:600px; line-height:1.5; }
-  .p12 .btn { display:inline-flex; align-items:center; gap:14px; background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; padding:28px 64px; border-radius:22px; font-family:'Sora',sans-serif; font-size:28px; font-weight:700; letter-spacing:-0.5px; margin-bottom:28px; }
-  .p12 .sub { font-size:19px; color:rgba(255,255,255,0.28); }
-  .p12 .tag { background:rgba(108,92,231,0.2); color:var(--primary-light); border:1px solid rgba(108,92,231,0.4); }
-
-  /* ═══ YENİ POST 13 — Ortak İlgi ═══ */
-  .p13 { background:linear-gradient(160deg,#0A0F1A 0%,#120A1A 100%); }
-  .p13 .glow { position:absolute; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle,rgba(162,155,254,0.2) 0%,transparent 70%); bottom:-200px; right:-200px; }
-  .p13 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p13 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:20px; }
-  .p13 h2 { font-family:'Sora',sans-serif; font-size:108px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:48px; }
-  .p13 h2 em { font-style:normal; color:var(--primary-light); }
-  .p13 .hobi-grid { display:flex; flex-wrap:wrap; gap:16px; }
-  .p13 .hobi {
-    padding:18px 28px; border-radius:50px;
-    font-family:'Sora',sans-serif; font-size:20px; font-weight:600;
-    border:1px solid;
-  }
-  .p13 .hobi.a { background:rgba(108,92,231,0.15); border-color:rgba(108,92,231,0.4); color:var(--primary-light); }
-  .p13 .hobi.b { background:rgba(0,184,148,0.12); border-color:rgba(0,184,148,0.35); color:var(--green); }
-  .p13 .hobi.c { background:rgba(255,118,117,0.12); border-color:rgba(255,118,117,0.35); color:var(--accent); }
-  .p13 .hobi.d { background:rgba(253,203,110,0.12); border-color:rgba(253,203,110,0.35); color:var(--amber); }
-  .p13 .hobi.match { background:rgba(108,92,231,0.25); border-color:var(--primary-light); color:#fff; position:relative; }
-  .p13 .hobi.match::after { content:'✓ Ortak'; position:absolute; top:-12px; right:-8px; background:var(--primary); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:20px; }
-  .p13 .desc { font-size:22px; color:rgba(255,255,255,0.4); margin-top:40px; line-height:1.6; }
-  .p13 .tag { background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.3); }
-
-  /* ═══ YENİ POST 14 — Mesajlaş ═══ */
-  .p14 { background:#08080F; }
-  .p14 .top-fade { position:absolute; top:0; left:0; right:0; height:460px; background:linear-gradient(180deg,#1A0A1A 0%,transparent 100%); }
-  .p14 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p14 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
-  .p14 h2 { font-family:'Sora',sans-serif; font-size:108px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:52px; }
-  .p14 h2 em { font-style:normal; color:var(--accent); }
-  .p14 .bubbles { display:flex; flex-direction:column; gap:18px; }
-  .p14 .bubble { max-width:75%; padding:22px 28px; border-radius:24px; font-size:20px; line-height:1.5; }
-  .p14 .bubble.them { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); border-bottom-left-radius:6px; align-self:flex-start; }
-  .p14 .bubble.me { background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:#fff; border-bottom-right-radius:6px; align-self:flex-end; }
-  .p14 .bubble .name { font-family:'Sora',sans-serif; font-size:14px; font-weight:700; color:var(--primary-light); margin-bottom:6px; }
-  .p14 .tag { background:rgba(255,118,117,0.15); color:var(--accent); border:1px solid rgba(255,118,117,0.3); }
-
-  /* ═══ YENİ POST 15 — Fakülte ═══ */
-  .p15 { background:linear-gradient(160deg,#080F08 0%,#0A0F18 100%); }
-  .p15 .glow { position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(0,184,148,0.18) 0%,transparent 70%); top:-200px; left:-200px; }
-  .p15 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p15 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:20px; }
-  .p15 h2 { font-family:'Sora',sans-serif; font-size:104px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:48px; }
-  .p15 h2 em { font-style:normal; color:var(--green); }
-  .p15 .fak-list { display:flex; flex-direction:column; gap:14px; }
-  .p15 .fak { display:flex; align-items:center; gap:20px; background:rgba(0,184,148,0.06); border:1px solid rgba(0,184,148,0.15); border-radius:18px; padding:22px 26px; }
-  .p15 .fak .ico { font-size:34px; flex-shrink:0; }
-  .p15 .fak h4 { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#fff; }
-  .p15 .fak p { font-size:15px; color:var(--text-muted); margin-top:3px; }
-  .p15 .fak .count { margin-left:auto; font-family:'Sora',sans-serif; font-size:18px; font-weight:800; color:var(--green); white-space:nowrap; }
-  .p15 .tag { background:rgba(0,184,148,0.12); color:var(--green); border:1px solid rgba(0,184,148,0.3); }
-
-  /* ═══ YENİ POST 16 — Profil İpuçları ═══ */
-  .p16 { background:#08080F; }
-  .p16 .bg-dots { position:absolute; inset:0; z-index:1; background-image:radial-gradient(rgba(108,92,231,0.15) 1px,transparent 1px); background-size:40px 40px; }
-  .p16 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p16 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--amber); margin-bottom:20px; }
-  .p16 h2 { font-family:'Sora',sans-serif; font-size:104px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.88; margin-bottom:52px; }
-  .p16 h2 em { font-style:normal; color:var(--amber); }
-  .p16 .tips { display:flex; flex-direction:column; gap:20px; }
-  .p16 .tip { display:flex; align-items:flex-start; gap:22px; }
-  .p16 .tip .num { width:52px; height:52px; border-radius:14px; flex-shrink:0; background:rgba(253,203,110,0.1); border:1px solid rgba(253,203,110,0.3); display:flex; align-items:center; justify-content:center; font-family:'Sora',sans-serif; font-size:24px; font-weight:900; color:var(--amber); }
-  .p16 .tip .txt h4 { font-family:'Sora',sans-serif; font-size:24px; font-weight:700; color:#fff; margin-bottom:6px; }
-  .p16 .tip .txt p { font-size:17px; color:var(--text-muted); line-height:1.5; }
-  .p16 .tag { background:rgba(253,203,110,0.12); color:var(--amber); border:1px solid rgba(253,203,110,0.3); }
-
-  /* ═══ YENİ POST 17 — Sıkça Sorulan ═══ */
-  .p17 { background:linear-gradient(160deg,#0A0A1F 0%,#0F0A1A 100%); }
-  .p17 .glow { position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(108,92,231,0.2) 0%,transparent 70%); bottom:-150px; right:-150px; }
-  .p17 .content { position:absolute; inset:0; z-index:5; padding:80px 72px; display:flex; flex-direction:column; justify-content:center; }
-  .p17 .kicker { font-family:'Sora',sans-serif; font-size:16px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--primary-light); margin-bottom:20px; }
-  .p17 h2 { font-family:'Sora',sans-serif; font-size:100px; font-weight:900; letter-spacing:-5px; color:#fff; line-height:0.9; margin-bottom:48px; }
-  .p17 h2 em { font-style:normal; color:var(--primary-light); }
-  .p17 .faqs { display:flex; flex-direction:column; gap:18px; }
-  .p17 .faq { background:rgba(255,255,255,0.04); border:1px solid rgba(108,92,231,0.2); border-radius:20px; padding:26px 30px; }
-  .p17 .faq .q { font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:10px; display:flex; align-items:center; gap:12px; }
-  .p17 .faq .q span { font-size:22px; }
-  .p17 .faq .a { font-size:17px; color:var(--text-muted); line-height:1.5; }
-  .p17 .tag { background:rgba(108,92,231,0.15); color:var(--primary-light); border:1px solid rgba(108,92,231,0.3); }
+  /* Her post tam 1080x1350 */
+  .post { width:1080px; height:1350px; position:relative; overflow:hidden; }
 </style>
 </head>
 <body>
 
-<h1 class="page-title">Campus Mate — Instagram Dikey Posts · 1080×1350px · v2</h1>
-<p class="page-sub">17 post · Tarayıcıyı %100 zoom yap, her kareyi ayrı ekran görüntüsü al</p>
+<p class="page-label">Campus Mate · Instagram Posts · Figma Ready</p>
+<p class="page-sub">19 post · 1080×1350px · HTML to Design ile Figma'ya aktar · Tarayıcı zoom %100</p>
 
-<div class="scroll-wrap">
-<div class="grid" style="margin-bottom:-5130px;">
+<div class="grid" style="margin-bottom:-4620px;">
 
-  <!-- 1 -->
-  <div class="post p1">
-    <div class="orb-a"></div><div class="orb-b"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.2);color:var(--primary-light);border:1px solid rgba(108,92,231,0.4);">Üniversite Sosyal</div>
-    <div class="content">
-      <div class="eyebrow">Tanışmak bu kadar kolay</div>
-      <h2>Kampüsün<br><em>sosyal</em><br>ağı.</h2>
-      <p>Aynı kampüsteki öğrencilerle tanış, ders arkadaşı bul, etkinliklere katıl.</p>
-    </div>
+<!-- ════════════════════════════════════════
+     POST 1 — TANITIM
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0D0B1E 0%,#1A1040 55%,#0D0B1E 100%);">
+  <!-- Orb A -->
+  <div style="position:absolute;width:860px;height:860px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,0.45) 0%,transparent 70%);top:-220px;right:-260px;"></div>
+  <!-- Orb B -->
+  <div style="position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,118,117,0.22) 0%,transparent 70%);bottom:-120px;left:-160px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);letter-spacing:-0.3px;">Campus Mate</span>
   </div>
-
-  <!-- 2 -->
-  <div class="post p2">
-    <div class="top-fade"></div><div class="big-num">3</div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(0,184,148,0.15);color:#00B894;border:1px solid rgba(0,184,148,0.3);">Nasıl Çalışır</div>
-    <div class="content">
-      <div class="kicker">3 Adımda Başla</div>
-      <h2>Bu kadar<br><span>basit.</span></h2>
-      <div class="cards">
-        <div class="card-row"><div class="num">01</div><div class="txt"><h4>Profilini Oluştur</h4><p>Fakülten, bölümün ve hobilerinle kişisel profilini oluştur.</p></div></div>
-        <div class="card-row"><div class="num">02</div><div class="txt"><h4>Keşfet</h4><p>Kampüsündeki öğrencileri keşfet, ortak ilgi alanlarını gör.</p></div></div>
-        <div class="card-row"><div class="num">03</div><div class="txt"><h4>Eşleş & Mesajlaş</h4><p>İki kişi birbirini beğenince eşleşir, sohbet başlar.</p></div></div>
-      </div>
-    </div>
+  <!-- Tag -->
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.2);border:1px solid rgba(108,92,231,0.45);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Üniversite Sosyal</div>
+  <!-- Content -->
+  <div style="position:absolute;bottom:110px;left:72px;right:72px;z-index:5;">
+    <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:28px;">Tanışmak bu kadar kolay</div>
+    <div style="font-family:'Sora',sans-serif;font-size:148px;font-weight:900;line-height:0.86;letter-spacing:-8px;color:#fff;margin-bottom:44px;">Kampüsün<br><span style="color:#A29BFE;">sosyal</span><br>ağı.</div>
+    <div style="font-size:30px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.6;max-width:700px;">Aynı kampüsteki öğrencilerle tanış, ders arkadaşı bul, etkinliklere katıl.</div>
   </div>
-
-  <!-- 3 -->
-  <div class="post p3">
-    <div class="heart-bg">❤️</div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(255,118,117,0.15);color:#FF7675;border:1px solid rgba(255,118,117,0.3);">Eşleşme</div>
-    <div class="content">
-      <div class="icon-big">🎉</div>
-      <h2>İki beğeni,<br>bir <em>eşleşme.</em></h2>
-      <p>Sen beğenirsin, o beğenir — anında eşleşirsiniz ve mesajlaşmaya başlayabilirsiniz.</p>
-      <div class="pill">🔥 Bugün kaç eşleşme bekliyor?</div>
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="post p4">
-    <div class="bg-lines"></div><div class="big-stat">50</div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(253,203,110,0.12);color:var(--amber);border:1px solid rgba(253,203,110,0.3);">Günlük Limit</div>
-    <div class="content">
-      <div class="badge">⚡ Günlük Hak</div>
-      <h2>Günde<br><span>50 swipe</span><br>hakkın var.</h2>
-      <div class="divider"></div>
-      <p>Her gün gece yarısı sıfırlanır. Kaliteyi koru, doğru kişileri beğen.</p>
-      <div class="info">💡 Limitin dolunca mesajlarını kontrol et.</div>
-    </div>
-  </div>
-
-  <!-- 5 -->
-  <div class="post p5">
-    <div class="glow"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(0,184,148,0.12);color:var(--green);border:1px solid rgba(0,184,148,0.3);">Şu An</div>
-    <div class="content">
-      <div class="label">✏️ Anlık Notlar</div>
-      <h2>Şu an ne<br><span>yapıyorsun?</span></h2>
-      <p>24 saatte kaybolan notlarla kampüsü anlık hisset.</p>
-      <div class="note-cards">
-        <div class="note"><div class="dot"></div><span>☕ Kütüphanede çalışıyorum, arkadaş arayanlar buyursun</span><span class="time">14dk</span></div>
-        <div class="note"><div class="dot"></div><span>🎮 Kafede vakit var, kim katılır?</span><span class="time">31dk</span></div>
-        <div class="note"><div class="dot"></div><span>📚 Calculus çalışma grubu kuruyorum</span><span class="time">1s</span></div>
-        <div class="note"><div class="dot"></div><span>🍕 Yemekhanede yer var, gel</span><span class="time">2s</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6 -->
-  <div class="post p6">
-    <div class="top-block"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.15);color:var(--primary-light);border:1px solid rgba(108,92,231,0.3);">Etkinlikler</div>
-    <div class="content">
-      <div class="icon-row"><div class="icon-box">🎉</div><div class="icon-box">🎵</div><div class="icon-box">🏃</div><div class="icon-box">🎭</div></div>
-      <h2>Kampüs<br><em>etkinlikleri</em><br>bir yerde.</h2>
-      <div class="event-list">
-        <div class="event"><div class="left"><div class="emoji">🎵</div><div class="info"><h4>Bahar Konseri</h4><p>Cuma · Kampüs Amfisi</p></div></div><div class="cat">Müzik</div></div>
-        <div class="event"><div class="left"><div class="emoji">🏃</div><div class="info"><h4>Kampüs Koşusu</h4><p>Cumartesi · 08:00</p></div></div><div class="cat">Spor</div></div>
-        <div class="event"><div class="left"><div class="emoji">🎨</div><div class="info"><h4>Kariyer Günleri</h4><p>Pazartesi · Konf. Salonu</p></div></div><div class="cat">Kariyer</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7 -->
-  <div class="post p7">
-    <div class="grid-bg"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.15);color:var(--primary-light);border:1px solid rgba(108,92,231,0.3);">Ders Arkadaşı</div>
-    <div class="content">
-      <div class="kicker">📚 Çalışma İlanları</div>
-      <h2>Birlikte<br>daha<br><em>kolay.</em></h2>
-      <div class="features">
-        <div class="feat"><div class="ico">🔍</div><h4>İlan Aç</h4><p>Ders ve konu belirterek çalışma arkadaşı bul.</p></div>
-        <div class="feat"><div class="ico">📍</div><h4>Yer Belirt</h4><p>Kütüphane, kafe veya online.</p></div>
-        <div class="feat"><div class="ico">🎯</div><h4>Konu Eşleş</h4><p>Aynı dersi alan öğrencilerle buluş.</p></div>
-        <div class="feat"><div class="ico">💬</div><h4>Direkt Yaz</h4><p>İlanı beğen, anında mesajlaş.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 8 -->
-  <div class="post p8">
-    <div class="shield-bg">🛡️</div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(0,184,148,0.12);color:var(--green);border:1px solid rgba(0,184,148,0.3);">Güvenlik</div>
-    <div class="content">
-      <div class="shield-icon">🛡️</div>
-      <h2>Güvenli<br><span>kampüs</span><br>ortamı.</h2>
-      <p>Rahat hissetmen için her adımda yanındayız.</p>
-      <div class="list">
-        <div class="item"><div class="check">✅</div><span>Sadece üniversite e-postasıyla kayıt</span></div>
-        <div class="item"><div class="check">✅</div><span>Kullanıcı engelleme ve şikayet sistemi</span></div>
-        <div class="item"><div class="check">✅</div><span>Admin moderasyon ekibi aktif</span></div>
-        <div class="item"><div class="check">✅</div><span>Ban sistemi ile kötü niyetli kullanıcı engeli</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 9 -->
-  <div class="post p9">
-    <div class="glow"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(253,203,110,0.12);color:var(--amber);border:1px solid rgba(253,203,110,0.3);">Leaderboard</div>
-    <div class="content">
-      <div class="label">🏆 Sıralama</div>
-      <h2>Kampüsün<br><em>yıldızları.</em></h2>
-      <div class="rows">
-        <div class="row gold"><div class="rank">🥇</div><div class="avatar" style="background:rgba(253,203,110,0.15)">👤</div><div><div class="uname">Ayşe K.</div><div class="faculty">Mühendislik · 3. Sınıf</div></div><div class="pts">2.840 puan</div></div>
-        <div class="row"><div class="rank">02</div><div class="avatar" style="background:rgba(255,255,255,0.06)">👤</div><div><div class="uname">Mert D.</div><div class="faculty">İletişim · 2. Sınıf</div></div><div class="pts">2.210 puan</div></div>
-        <div class="row"><div class="rank">03</div><div class="avatar" style="background:rgba(255,255,255,0.06)">👤</div><div><div class="uname">Zeynep A.</div><div class="faculty">Hukuk · 4. Sınıf</div></div><div class="pts">1.980 puan</div></div>
-        <div class="row"><div class="rank">04</div><div class="avatar" style="background:rgba(255,255,255,0.06)">👤</div><div><div class="uname">Berk S.</div><div class="faculty">Tıp · 1. Sınıf</div></div><div class="pts">1.740 puan</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 10 -->
-  <div class="post p10">
-    <div class="stripe"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.15);color:var(--primary-light);border:1px solid rgba(108,92,231,0.3);">Başlarken</div>
-    <div class="content">
-      <div class="kicker">Nasıl kayıt olunur?</div>
-      <h2>4 adım,<br>hazırsın.</h2>
-      <div class="steps">
-        <div class="step"><div class="num">1</div><div class="txt"><h4>Uygulamayı İndir</h4><p>App Store'dan Campus Mate'i ücretsiz indir.</p></div></div>
-        <div class="step"><div class="num">2</div><div class="txt"><h4>E-posta Doğrula</h4><p>E-postanla kayıt ol, gelen doğrulama linkine tıkla.</p></div></div>
-        <div class="step"><div class="num">3</div><div class="txt"><h4>Profili Doldur</h4><p>Fakülte, bölüm, hobiler — kendini tanıt.</p></div></div>
-        <div class="step"><div class="num">4</div><div class="txt"><h4>Keşfetmeye Başla</h4><p>Kampüsündeki öğrencileri anında keşfet.</p></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 11 -->
-  <div class="post p11">
-    <div class="star-bg">⭐</div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(253,203,110,0.12);color:var(--amber);border:1px solid rgba(253,203,110,0.3);">Süper Beğeni</div>
-    <div class="content">
-      <div class="star-icon">⭐</div>
-      <h2>Normal değil,<br><em>süper</em> beğen.</h2>
-      <p>Süper beğeni gönderdiğinde karşı taraf özellikle ilgilendiğini görür.</p>
-      <div class="vs-row">
-        <div class="vs-card normal"><div class="ico">❤️</div><h4>Normal Beğeni</h4><p>Listede görünür, eşleşmeyi bekler.</p></div>
-        <div class="vs-card super"><div class="ico">⭐</div><h4>Süper Beğeni</h4><p>Karşı taraf senin özellikle ilgilendiğini görür.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 12 -->
-  <div class="post p12">
-    <div class="orb"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.2);color:var(--primary-light);border:1px solid rgba(108,92,231,0.4);">App Store</div>
-    <div class="content">
-      <div class="pre">Ücretsiz İndir</div>
-      <h2>Kampüsün<br><em>seni</em><br>bekliyor.</h2>
-      <p>App Store'da Campus Mate'i ara, hemen indir.</p>
-      <div class="btn">🍎 App Store'dan İndir</div>
-      <div class="sub">Ücretsiz · iOS · Hemen başla</div>
-    </div>
-  </div>
-
-  <!-- 13 YENİ — Ortak İlgi -->
-  <div class="post p13">
-    <div class="glow"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.15);color:var(--primary-light);border:1px solid rgba(108,92,231,0.3);">Ortak İlgi</div>
-    <div class="content">
-      <div class="kicker">🎯 Hobiler Seni Bulur</div>
-      <h2>Ortak<br><em>ilgiler,</em><br>güçlü bağ.</h2>
-      <div class="hobi-grid">
-        <div class="hobi a">🎵 Müzik</div>
-        <div class="hobi match">📚 Kitap</div>
-        <div class="hobi b">🏃 Spor</div>
-        <div class="hobi match">🎮 Oyun</div>
-        <div class="hobi c">✈️ Seyahat</div>
-        <div class="hobi d">🍳 Yemek</div>
-        <div class="hobi a">🎨 Sanat</div>
-        <div class="hobi b">💻 Kod</div>
-      </div>
-      <div class="desc">Aynı hobiye sahip kişilerde yeşil "Ortak" rozeti görürsün. Daha kolay bağlantı, daha güçlü eşleşme.</div>
-    </div>
-  </div>
-
-  <!-- 14 YENİ — Mesajlaş -->
-  <div class="post p14">
-    <div class="top-fade"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(255,118,117,0.15);color:var(--accent);border:1px solid rgba(255,118,117,0.3);">Sohbet</div>
-    <div class="content">
-      <div class="kicker">💬 Gerçek Sohbetler</div>
-      <h2>Eşleş,<br><em>konuş,</em><br>tanış.</h2>
-      <div class="bubbles">
-        <div class="bubble them"><div class="name">Ayşe K.</div>Merhaba! Calculus çalışma grubuna katılmak ister misin? 📚</div>
-        <div class="bubble me">Tabii ki! Ne zaman buluşuyorsunuz?</div>
-        <div class="bubble them">Yarın kütüphanede saat 14:00'te 🙌</div>
-        <div class="bubble me">Harika, orada olacağım! 🎯</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 15 YENİ — Fakülte -->
-  <div class="post p15">
-    <div class="glow"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(0,184,148,0.12);color:var(--green);border:1px solid rgba(0,184,148,0.3);">Fakülte</div>
-    <div class="content">
-      <div class="kicker">🏛️ Tüm Fakülteler</div>
-      <h2>Her<br><em>fakülteden</em><br>öğrenci.</h2>
-      <div class="fak-list">
-        <div class="fak"><div class="ico">⚙️</div><div><h4>Mühendislik</h4><p>En aktif fakülte</p></div><div class="count">En çok ↑</div></div>
-        <div class="fak"><div class="ico">⚖️</div><div><h4>Hukuk</h4><p>Tartışma grupları</p></div></div>
-        <div class="fak"><div class="ico">🩺</div><div><h4>Tıp</h4><p>Çalışma ortaklıkları</p></div></div>
-        <div class="fak"><div class="ico">📡</div><div><h4>İletişim</h4><p>Proje ekipleri</p></div></div>
-        <div class="fak"><div class="ico">🎨</div><div><h4>Güzel Sanatlar</h4><p>Yaratıcı projeler</p></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 16 YENİ — Profil İpuçları -->
-  <div class="post p16">
-    <div class="bg-dots"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(253,203,110,0.12);color:var(--amber);border:1px solid rgba(253,203,110,0.3);">Profil İpuçları</div>
-    <div class="content">
-      <div class="kicker">💡 Daha Fazla Eşleşme</div>
-      <h2>Profili<br><em>güçlü</em><br>tut.</h2>
-      <div class="tips">
-        <div class="tip"><div class="num">1</div><div class="txt"><h4>Fotoğraf Ekle</h4><p>Fotoğraflı profiller 3x daha fazla eşleşme alıyor.</p></div></div>
-        <div class="tip"><div class="num">2</div><div class="txt"><h4>Hobilerini Seç</h4><p>En az 4 hobi seç — ortak ilgiler önce gösteriliyor.</p></div></div>
-        <div class="tip"><div class="num">3</div><div class="txt"><h4>Bio Yaz</h4><p>Kısa bir tanıtım cümlesi merak uyandırır.</p></div></div>
-        <div class="tip"><div class="num">4</div><div class="txt"><h4>Aktif Ol</h4><p>Son 7 günde aktif kullanıcılar önce gösteriliyor.</p></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 17 YENİ — SSS -->
-  <div class="post p17">
-    <div class="glow"></div>
-    <div class="logo-mark"><div class="icon">🎓</div><span class="name">Campus Mate</span></div>
-    <div class="tag" style="background:rgba(108,92,231,0.15);color:var(--primary-light);border:1px solid rgba(108,92,231,0.3);">Sık Sorulan</div>
-    <div class="content">
-      <div class="kicker">❓ Merak Edilenler</div>
-      <h2>Aklındaki<br><em>sorular.</em></h2>
-      <div class="faqs">
-        <div class="faq"><div class="q"><span>🔒</span>Güvenli mi?</div><div class="a">Evet. Kayıt e-posta doğrulaması gerektiriyor, moderasyon ekibimiz 7/24 aktif.</div></div>
-        <div class="faq"><div class="q"><span>💸</span>Ücretli mi?</div><div class="a">Tamamen ücretsiz. Gizli ücret yok, abonelik yok.</div></div>
-        <div class="faq"><div class="q"><span>🏫</span>Hangi üniversiteler?</div><div class="a">Tüm üniversitelerden öğrenciler kullanabiliyor.</div></div>
-        <div class="faq"><div class="q"><span>👁️</span>Profilim herkese görünür mü?</div><div class="a">Sadece aynı uygulamayı kullanan öğrenciler görebilir.</div></div>
-      </div>
-    </div>
-  </div>
-
-</div>
 </div>
 
-<p style="text-align:center;font-size:12px;color:#333355;margin-top:16px;">17 post · 1080×1350px · Tarayıcıyı %100 zoom yap, her postu ayrı ekran görüntüsü al</p>
+<!-- ════════════════════════════════════════
+     POST 2 — NASIL ÇALIŞIR
+════════════════════════════════════════ -->
+<div class="post" style="background:#080810;">
+  <div style="position:absolute;top:0;left:0;right:0;height:520px;background:linear-gradient(180deg,#1A1040 0%,transparent 100%);"></div>
+  <div style="position:absolute;right:20px;top:80px;font-family:'Sora',sans-serif;font-size:340px;font-weight:900;color:rgba(108,92,231,0.05);line-height:1;letter-spacing:-15px;z-index:1;">3</div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(0,184,148,0.15);border:1px solid rgba(0,184,148,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00B894;z-index:5;">Nasıl Çalışır</div>
+  <!-- Content -->
+  <div style="position:absolute;top:150px;left:72px;right:72px;z-index:5;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:22px;">3 Adımda Başla</div>
+    <div style="font-family:'Sora',sans-serif;font-size:112px;font-weight:900;line-height:0.9;letter-spacing:-6px;color:#fff;margin-bottom:56px;">Bu kadar<br><span style="color:#A29BFE;">basit.</span></div>
+    <!-- Card 1 -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px 36px;display:flex;align-items:center;gap:28px;margin-bottom:18px;">
+      <div style="font-family:'Sora',sans-serif;font-size:58px;font-weight:900;color:rgba(108,92,231,0.22);min-width:80px;">01</div>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;">Profilini Oluştur</div>
+        <div style="font-size:20px;color:#8888AA;line-height:1.5;">Fakülten, bölümün ve hobilerinle kişisel profilini oluştur.</div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px 36px;display:flex;align-items:center;gap:28px;margin-bottom:18px;">
+      <div style="font-family:'Sora',sans-serif;font-size:58px;font-weight:900;color:rgba(108,92,231,0.22);min-width:80px;">02</div>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;">Keşfet</div>
+        <div style="font-size:20px;color:#8888AA;line-height:1.5;">Kampüsündeki öğrencileri keşfet, ortak ilgi alanlarını gör.</div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px 36px;display:flex;align-items:center;gap:28px;">
+      <div style="font-family:'Sora',sans-serif;font-size:58px;font-weight:900;color:rgba(108,92,231,0.22);min-width:80px;">03</div>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;">Eşleş & Mesajlaş</div>
+        <div style="font-size:20px;color:#8888AA;line-height:1.5;">İki kişi birbirini beğenince eşleşir, sohbet başlar.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 3 — EŞLEŞİM
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#1A0A1A 0%,#0F0A20 100%);">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:700px;opacity:0.03;z-index:1;line-height:1;">❤️</div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(255,118,117,0.15);border:1px solid rgba(255,118,117,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF7675;z-index:5;">Eşleşme</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px;z-index:5;">
+    <div style="font-size:148px;margin-bottom:44px;">🎉</div>
+    <div style="font-family:'Sora',sans-serif;font-size:124px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:36px;">İki beğeni,<br><span style="background:linear-gradient(135deg,#FF7675,#FDCB6E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">bir eşleşme.</span></div>
+    <div style="font-size:28px;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.6;max-width:680px;margin-bottom:60px;">Sen beğenirsin, o beğenir — anında eşleşirsiniz ve mesajlaşmaya başlayabilirsiniz.</div>
+    <div style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,118,117,0.1);border:1px solid rgba(255,118,117,0.35);border-radius:50px;padding:22px 44px;font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#FF7675;">🔥 Bugün kaç eşleşme bekliyor?</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 4 — SWIPE LİMİT
+════════════════════════════════════════ -->
+<div class="post" style="background:#08080F;">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 99px,rgba(108,92,231,0.04) 100px);"></div>
+  <div style="position:absolute;right:10px;bottom:50px;font-family:'Sora',sans-serif;font-size:340px;font-weight:900;color:rgba(253,203,110,0.05);line-height:1;letter-spacing:-15px;z-index:2;">50</div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(253,203,110,0.12);border:1px solid rgba(253,203,110,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FDCB6E;z-index:5;">Günlük Limit</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;padding:80px 72px;z-index:5;display:flex;flex-direction:column;justify-content:center;">
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:40px;background:rgba(253,203,110,0.1);border:1px solid rgba(253,203,110,0.35);border-radius:50px;padding:14px 28px;width:fit-content;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#FDCB6E;letter-spacing:1px;text-transform:uppercase;">⚡ Günlük Hak</div>
+    <div style="font-family:'Sora',sans-serif;font-size:128px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.9;margin-bottom:40px;">Günde<br><span style="color:#FDCB6E;">50 swipe</span><br>hakkın var.</div>
+    <div style="width:72px;height:6px;background:#FDCB6E;border-radius:4px;margin-bottom:40px;"></div>
+    <div style="font-size:28px;color:rgba(255,255,255,0.42);line-height:1.6;max-width:640px;margin-bottom:36px;">Her gün gece yarısı sıfırlanır. Kaliteyi koru, doğru kişileri beğen.</div>
+    <div style="font-size:24px;color:rgba(255,255,255,0.58);font-weight:500;">💡 Limitin dolunca mesajlarını kontrol et.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 5 — ANLIK NOTLAR
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0A1A0A 0%,#0A0F1A 100%);">
+  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,184,148,0.22) 0%,transparent 70%);top:-150px;left:-100px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00B894;z-index:5;">Şu An</div>
+  <!-- Content -->
+  <div style="position:absolute;bottom:80px;left:72px;right:72px;z-index:5;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00B894;margin-bottom:20px;">✏️ Anlık Notlar</div>
+    <div style="font-family:'Sora',sans-serif;font-size:128px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:20px;">Şu an ne<br><span style="color:#00B894;">yapıyorsun?</span></div>
+    <div style="font-size:26px;color:rgba(255,255,255,0.4);margin-bottom:36px;line-height:1.5;">24 saatte kaybolan notlarla kampüsü anlık hisset.</div>
+    <!-- Notlar -->
+    <div style="background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.22);border-radius:18px;padding:22px 28px;display:flex;align-items:center;gap:18px;margin-bottom:14px;">
+      <div style="width:11px;height:11px;border-radius:50%;background:#00B894;flex-shrink:0;"></div>
+      <span style="font-size:22px;color:rgba(255,255,255,0.72);flex:1;">☕ Kütüphanede çalışıyorum, arkadaş arayanlar buyursun</span>
+      <span style="font-size:16px;color:rgba(255,255,255,0.28);white-space:nowrap;">14dk</span>
+    </div>
+    <div style="background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.22);border-radius:18px;padding:22px 28px;display:flex;align-items:center;gap:18px;margin-bottom:14px;">
+      <div style="width:11px;height:11px;border-radius:50%;background:#00B894;flex-shrink:0;"></div>
+      <span style="font-size:22px;color:rgba(255,255,255,0.72);flex:1;">🎮 Kafede vakit var, kim katılır?</span>
+      <span style="font-size:16px;color:rgba(255,255,255,0.28);white-space:nowrap;">31dk</span>
+    </div>
+    <div style="background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.22);border-radius:18px;padding:22px 28px;display:flex;align-items:center;gap:18px;">
+      <div style="width:11px;height:11px;border-radius:50%;background:#00B894;flex-shrink:0;"></div>
+      <span style="font-size:22px;color:rgba(255,255,255,0.72);flex:1;">📚 Calculus çalışma grubu kuruyorum</span>
+      <span style="font-size:16px;color:rgba(255,255,255,0.28);white-space:nowrap;">1s</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 6 — ETKİNLİKLER
+════════════════════════════════════════ -->
+<div class="post" style="background:#080810;">
+  <div style="position:absolute;top:0;left:0;right:0;height:520px;background:linear-gradient(180deg,#1A1040 0%,#0D0B1E 100%);"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Etkinlikler</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;padding:80px 72px;z-index:5;">
+    <div style="display:flex;gap:16px;margin-top:90px;margin-bottom:32px;">
+      <div style="width:68px;height:68px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.3);">🎉</div>
+      <div style="width:68px;height:68px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.3);">🎵</div>
+      <div style="width:68px;height:68px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.3);">🏃</div>
+      <div style="width:68px;height:68px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.3);">🎭</div>
+    </div>
+    <div style="font-family:'Sora',sans-serif;font-size:112px;font-weight:900;letter-spacing:-6px;color:#fff;line-height:0.88;margin-bottom:44px;">Kampüs<br><span style="color:#A29BFE;">etkinlikleri</span><br>bir yerde.</div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div style="display:flex;align-items:center;gap:20px;"><span style="font-size:36px;">🎵</span><div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Bahar Konseri</div><div style="font-size:17px;color:#8888AA;margin-top:3px;">Cuma · Kampüs Amfisi</div></div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:20px;background:rgba(108,92,231,0.15);color:#A29BFE;border:1px solid rgba(108,92,231,0.28);">Müzik</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div style="display:flex;align-items:center;gap:20px;"><span style="font-size:36px;">🏃</span><div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Kampüs Koşusu</div><div style="font-size:17px;color:#8888AA;margin-top:3px;">Cumartesi · 08:00</div></div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:20px;background:rgba(108,92,231,0.15);color:#A29BFE;border:1px solid rgba(108,92,231,0.28);">Spor</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:20px;"><span style="font-size:36px;">🎨</span><div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Kariyer Günleri</div><div style="font-size:17px;color:#8888AA;margin-top:3px;">Pazartesi · Konf. Salonu</div></div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:20px;background:rgba(108,92,231,0.15);color:#A29BFE;border:1px solid rgba(108,92,231,0.28);">Kariyer</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 7 — DERS ARKADAŞI
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(150deg,#0A0F1A 0%,#0F0A1A 100%);">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(108,92,231,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(108,92,231,0.06) 1px,transparent 1px);background-size:90px 90px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Ders Arkadaşı</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:20px;margin-top:80px;">📚 Çalışma İlanları</div>
+    <div style="font-family:'Sora',sans-serif;font-size:128px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:52px;">Birlikte<br>daha<br><span style="color:#A29BFE;">kolay.</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:42px;margin-bottom:16px;">🔍</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">İlan Aç</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">Ders ve konu belirterek çalışma arkadaşı bul.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:42px;margin-bottom:16px;">📍</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Yer Belirt</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">Kütüphane, kafe veya online.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:42px;margin-bottom:16px;">🎯</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Konu Eşleş</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">Aynı dersi alan öğrencilerle buluş.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:42px;margin-bottom:16px;">💬</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Direkt Yaz</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">İlanı beğen, anında mesajlaş.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 8 — GÜVENLİK
+════════════════════════════════════════ -->
+<div class="post" style="background:#08080F;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:800px;opacity:0.025;line-height:1;z-index:1;">🛡️</div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00B894;z-index:5;">Güvenlik</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px;">
+    <div style="width:148px;height:148px;border-radius:40px;background:rgba(0,184,148,0.1);border:1px solid rgba(0,184,148,0.3);display:flex;align-items:center;justify-content:center;font-size:72px;margin-bottom:48px;">🛡️</div>
+    <div style="font-family:'Sora',sans-serif;font-size:112px;font-weight:900;letter-spacing:-6px;color:#fff;line-height:0.9;margin-bottom:24px;">Güvenli<br><span style="color:#00B894;">kampüs</span><br>ortamı.</div>
+    <div style="font-size:26px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:720px;margin-bottom:52px;">Rahat hissetmen için her adımda yanındayız.</div>
+    <div style="display:flex;flex-direction:column;gap:18px;width:100%;max-width:780px;">
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;text-align:left;">
+        <span style="font-size:26px;flex-shrink:0;">✅</span>
+        <span style="font-size:22px;color:rgba(255,255,255,0.68);">Sadece üniversite e-postasıyla kayıt</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;text-align:left;">
+        <span style="font-size:26px;flex-shrink:0;">✅</span>
+        <span style="font-size:22px;color:rgba(255,255,255,0.68);">Kullanıcı engelleme ve şikayet sistemi</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;text-align:left;">
+        <span style="font-size:26px;flex-shrink:0;">✅</span>
+        <span style="font-size:22px;color:rgba(255,255,255,0.68);">Admin moderasyon ekibi aktif</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;text-align:left;">
+        <span style="font-size:26px;flex-shrink:0;">✅</span>
+        <span style="font-size:22px;color:rgba(255,255,255,0.68);">Ban sistemi ile kötü niyetli kullanıcı engeli</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 9 — LEADERBOARD
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#120A00 0%,#1A1000 100%);">
+  <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(253,203,110,0.16) 0%,transparent 70%);top:-250px;right:-200px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(253,203,110,0.12);border:1px solid rgba(253,203,110,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FDCB6E;z-index:5;">Leaderboard</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FDCB6E;margin-bottom:20px;margin-top:90px;">🏆 Sıralama</div>
+    <div style="font-family:'Sora',sans-serif;font-size:120px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.88;margin-bottom:52px;">Kampüsün<br><span style="color:#FDCB6E;">yıldızları.</span></div>
+    <!-- Row 1 Gold -->
+    <div style="display:flex;align-items:center;gap:24px;background:rgba(253,203,110,0.09);border:1px solid rgba(253,203,110,0.32);border-radius:18px;padding:24px 30px;margin-bottom:14px;">
+      <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:900;color:#FDCB6E;min-width:58px;">🥇</span>
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(253,203,110,0.16);display:flex;align-items:center;justify-content:center;font-size:26px;">👤</div>
+      <div style="flex:1;"><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Ayşe K.</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Mühendislik · 3. Sınıf</div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#FDCB6E;white-space:nowrap;">2.840 puan</div>
+    </div>
+    <!-- Row 2 -->
+    <div style="display:flex;align-items:center;gap:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(253,203,110,0.09);border-radius:18px;padding:24px 30px;margin-bottom:14px;">
+      <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:900;color:rgba(255,255,255,0.18);min-width:58px;">02</span>
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:26px;">👤</div>
+      <div style="flex:1;"><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Mert D.</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">İletişim · 2. Sınıf</div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#FDCB6E;white-space:nowrap;">2.210 puan</div>
+    </div>
+    <!-- Row 3 -->
+    <div style="display:flex;align-items:center;gap:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(253,203,110,0.09);border-radius:18px;padding:24px 30px;margin-bottom:14px;">
+      <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:900;color:rgba(255,255,255,0.18);min-width:58px;">03</span>
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:26px;">👤</div>
+      <div style="flex:1;"><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Zeynep A.</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Hukuk · 4. Sınıf</div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#FDCB6E;white-space:nowrap;">1.980 puan</div>
+    </div>
+    <!-- Row 4 -->
+    <div style="display:flex;align-items:center;gap:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(253,203,110,0.09);border-radius:18px;padding:24px 30px;">
+      <span style="font-family:'Sora',sans-serif;font-size:36px;font-weight:900;color:rgba(255,255,255,0.18);min-width:58px;">04</span>
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:26px;">👤</div>
+      <div style="flex:1;"><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Berk S.</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Tıp · 1. Sınıf</div></div>
+      <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#FDCB6E;white-space:nowrap;">1.740 puan</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 10 — KAYIT
+════════════════════════════════════════ -->
+<div class="post" style="background:#080810;">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:9px;background:linear-gradient(180deg,#6C5CE7,#FF7675);z-index:5;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:96px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Başlarken</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;padding:80px 80px 80px 106px;z-index:5;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:24px;margin-top:80px;">Nasıl kayıt olunur?</div>
+    <div style="font-family:'Sora',sans-serif;font-size:120px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.88;margin-bottom:60px;">4 adım,<br>hazırsın.</div>
+    <!-- Steps -->
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.38);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#A29BFE;">1</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Uygulamayı İndir</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">App Store'dan Campus Mate'i ücretsiz indir.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.38);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#A29BFE;">2</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">E-posta Doğrula</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">E-postanla kayıt ol, gelen linke tıkla.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.38);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#A29BFE;">3</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Profili Doldur</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">Fakülte, bölüm, hobiler — kendini tanıt.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.38);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#A29BFE;">4</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Keşfetmeye Başla</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">Kampüsündeki öğrencileri anında keşfet.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 11 — SÜPER BEĞENİ
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0A0A1F 0%,#150A20 100%);">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:900px;opacity:0.02;z-index:1;line-height:1;">⭐</div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(253,203,110,0.12);border:1px solid rgba(253,203,110,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FDCB6E;z-index:5;">Süper Beğeni</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px;">
+    <div style="font-size:148px;margin-bottom:40px;filter:drop-shadow(0 0 50px rgba(253,203,110,0.5));">⭐</div>
+    <div style="font-family:'Sora',sans-serif;font-size:118px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.88;margin-bottom:28px;">Normal değil,<br><span style="color:#FDCB6E;">süper</span> beğen.</div>
+    <div style="font-size:28px;color:rgba(255,255,255,0.42);line-height:1.5;max-width:700px;margin-bottom:56px;">Süper beğeni gönderdiğinde karşı taraf özellikle ilgilendiğini görür.</div>
+    <div style="display:flex;gap:24px;width:100%;max-width:880px;">
+      <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:28px;padding:36px 30px;text-align:left;">
+        <div style="font-size:40px;margin-bottom:16px;">❤️</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:12px;">Normal Beğeni</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">Listede görünür, eşleşmeyi bekler.</div>
+      </div>
+      <div style="flex:1;background:rgba(253,203,110,0.08);border:1px solid rgba(253,203,110,0.32);border-radius:28px;padding:36px 30px;text-align:left;">
+        <div style="font-size:40px;margin-bottom:16px;">⭐</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:12px;">Süper Beğeni</div>
+        <div style="font-size:19px;color:#8888AA;line-height:1.5;">Karşı taraf özellikle ilgilendiğini görür.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 12 — CTA / İNDİR
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(145deg,#0D0B1E 0%,#1A1040 55%,#0D0B1E 100%);">
+  <div style="position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,0.36) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.2);border:1px solid rgba(108,92,231,0.45);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">App Store</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:72px;">
+    <div style="font-family:'Sora',sans-serif;font-size:20px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:32px;">Ücretsiz İndir</div>
+    <div style="font-family:'Sora',sans-serif;font-size:140px;font-weight:900;letter-spacing:-8px;color:#fff;line-height:0.86;margin-bottom:32px;">Kampüsün<br><span style="color:#A29BFE;">seni</span><br>bekliyor.</div>
+    <div style="font-size:30px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:60px;max-width:640px;line-height:1.5;">App Store'da Campus Mate'i ara, hemen indir.</div>
+    <div style="display:inline-flex;align-items:center;gap:16px;background:linear-gradient(135deg,#6C5CE7,#A29BFE);color:#fff;padding:30px 68px;border-radius:24px;font-family:'Sora',sans-serif;font-size:30px;font-weight:700;letter-spacing:-0.5px;margin-bottom:28px;">🍎 App Store'dan İndir</div>
+    <div style="font-size:20px;color:rgba(255,255,255,0.28);">Ücretsiz · iOS · Hemen başla</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 13 — ORTAK İLGİ
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0A0F1A 0%,#120A1A 100%);">
+  <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(162,155,254,0.2) 0%,transparent 70%);bottom:-200px;right:-200px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Ortak İlgi</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:20px;margin-top:80px;">🎯 Hobiler Seni Bulur</div>
+    <div style="font-family:'Sora',sans-serif;font-size:128px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:48px;">Ortak<br><span style="color:#A29BFE;">ilgiler,</span><br>güçlü bağ.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:44px;">
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.42);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#A29BFE;">🎵 Müzik</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(108,92,231,0.28);border:2px solid #A29BFE;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;">📚 Kitap ✓</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.38);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#00B894;">🏃 Spor</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(108,92,231,0.28);border:2px solid #A29BFE;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;">🎮 Oyun ✓</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(255,118,117,0.12);border:1px solid rgba(255,118,117,0.38);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#FF7675;">✈️ Seyahat</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(253,203,110,0.12);border:1px solid rgba(253,203,110,0.38);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#FDCB6E;">🍳 Yemek</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.42);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#A29BFE;">🎨 Sanat</div>
+      <div style="padding:20px 30px;border-radius:50px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.38);font-family:'Sora',sans-serif;font-size:22px;font-weight:600;color:#00B894;">💻 Kod</div>
+    </div>
+    <div style="font-size:24px;color:rgba(255,255,255,0.4);line-height:1.6;">Aynı hobiye sahip kişilerde "Ortak" rozeti görürsün. Daha kolay bağlantı, daha güçlü eşleşme.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 14 — SOHBET
+════════════════════════════════════════ -->
+<div class="post" style="background:#08080F;">
+  <div style="position:absolute;top:0;left:0;right:0;height:480px;background:linear-gradient(180deg,#1A0A1A 0%,transparent 100%);"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(255,118,117,0.15);border:1px solid rgba(255,118,117,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF7675;z-index:5;">Sohbet</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FF7675;margin-bottom:20px;margin-top:80px;">💬 Gerçek Sohbetler</div>
+    <div style="font-family:'Sora',sans-serif;font-size:124px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:52px;">Eşleş,<br><span style="color:#FF7675;">konuş,</span><br>tanış.</div>
+    <!-- Chat bubbles -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div style="max-width:78%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:24px;border-bottom-left-radius:6px;padding:24px 30px;align-self:flex-start;">
+        <div style="font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:#A29BFE;margin-bottom:8px;">Ayşe K.</div>
+        <div style="font-size:22px;color:rgba(255,255,255,0.8);line-height:1.5;">Merhaba! Calculus çalışma grubuna katılmak ister misin? 📚</div>
+      </div>
+      <div style="max-width:68%;background:linear-gradient(135deg,#6C5CE7,#A29BFE);border-radius:24px;border-bottom-right-radius:6px;padding:24px 30px;align-self:flex-end;">
+        <div style="font-size:22px;color:#fff;line-height:1.5;">Tabii ki! Ne zaman buluşuyorsunuz?</div>
+      </div>
+      <div style="max-width:68%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:24px;border-bottom-left-radius:6px;padding:24px 30px;align-self:flex-start;">
+        <div style="font-size:22px;color:rgba(255,255,255,0.8);line-height:1.5;">Yarın kütüphanede saat 14:00'te 🙌</div>
+      </div>
+      <div style="max-width:60%;background:linear-gradient(135deg,#6C5CE7,#A29BFE);border-radius:24px;border-bottom-right-radius:6px;padding:24px 30px;align-self:flex-end;">
+        <div style="font-size:22px;color:#fff;line-height:1.5;">Harika, orada olacağım! 🎯</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 15 — FAKÜLTELER
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#080F08 0%,#0A0F18 100%);">
+  <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(0,184,148,0.18) 0%,transparent 70%);top:-200px;left:-200px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(0,184,148,0.12);border:1px solid rgba(0,184,148,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00B894;z-index:5;">Fakülte</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00B894;margin-bottom:20px;margin-top:80px;">🏛️ Tüm Fakülteler</div>
+    <div style="font-family:'Sora',sans-serif;font-size:120px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:48px;">Her<br><span style="color:#00B894;">fakülteden</span><br>öğrenci.</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:22px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;">
+        <span style="font-size:36px;flex-shrink:0;">⚙️</span>
+        <div style="flex:1;"><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Mühendislik</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">En aktif fakülte</div></div>
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:#00B894;white-space:nowrap;">En çok ↑</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;">
+        <span style="font-size:36px;flex-shrink:0;">⚖️</span>
+        <div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Hukuk</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Tartışma grupları</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;">
+        <span style="font-size:36px;flex-shrink:0;">🩺</span>
+        <div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Tıp</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Çalışma ortaklıkları</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;">
+        <span style="font-size:36px;flex-shrink:0;">📡</span>
+        <div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">İletişim</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Proje ekipleri</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;background:rgba(0,184,148,0.07);border:1px solid rgba(0,184,148,0.17);border-radius:18px;padding:24px 28px;">
+        <span style="font-size:36px;flex-shrink:0;">🎨</span>
+        <div><div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;">Güzel Sanatlar</div><div style="font-size:16px;color:#8888AA;margin-top:3px;">Yaratıcı projeler</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 16 — PROFİL İPUÇLARI
+════════════════════════════════════════ -->
+<div class="post" style="background:#08080F;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(108,92,231,0.14) 1px,transparent 1px);background-size:40px 40px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(253,203,110,0.12);border:1px solid rgba(253,203,110,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FDCB6E;z-index:5;">Profil İpuçları</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FDCB6E;margin-bottom:20px;margin-top:80px;">💡 Daha Fazla Eşleşme</div>
+    <div style="font-family:'Sora',sans-serif;font-size:120px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:52px;">Profili<br><span style="color:#FDCB6E;">güçlü</span><br>tut.</div>
+    <div style="display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(253,203,110,0.1);border:1px solid rgba(253,203,110,0.32);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#FDCB6E;">1</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Fotoğraf Ekle</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">Fotoğraflı profiller 3x daha fazla eşleşme alıyor.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(253,203,110,0.1);border:1px solid rgba(253,203,110,0.32);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#FDCB6E;">2</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Hobilerini Seç</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">En az 4 hobi seç — ortak ilgiler önce gösteriliyor.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(253,203,110,0.1);border:1px solid rgba(253,203,110,0.32);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#FDCB6E;">3</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Bio Yaz</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">Kısa bir tanıtım cümlesi merak uyandırır.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:28px;">
+        <div style="width:66px;height:66px;border-radius:18px;flex-shrink:0;background:rgba(253,203,110,0.1);border:1px solid rgba(253,203,110,0.32);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:30px;font-weight:900;color:#FDCB6E;">4</div>
+        <div><div style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;">Aktif Ol</div><div style="font-size:20px;color:#8888AA;line-height:1.5;">Son 7 günde aktif kullanıcılar önce gösteriliyor.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 17 — SSS
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0A0A1F 0%,#0F0A1A 100%);">
+  <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,0.2) 0%,transparent 70%);bottom:-150px;right:-150px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.15);border:1px solid rgba(108,92,231,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Sık Sorulan</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:20px;margin-top:80px;">❓ Merak Edilenler</div>
+    <div style="font-family:'Sora',sans-serif;font-size:112px;font-weight:900;letter-spacing:-6px;color:#fff;line-height:0.88;margin-bottom:48px;">Aklındaki<br><span style="color:#A29BFE;">sorular.</span></div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:20px;padding:28px 32px;">
+        <div style="display:flex;align-items:center;gap:14px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;"><span style="font-size:24px;">🔒</span>Güvenli mi?</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Evet. E-posta doğrulaması + moderasyon ekibi 7/24 aktif.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:20px;padding:28px 32px;">
+        <div style="display:flex;align-items:center;gap:14px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;"><span style="font-size:24px;">💸</span>Ücretli mi?</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Tamamen ücretsiz. Gizli ücret yok, abonelik yok.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:20px;padding:28px 32px;">
+        <div style="display:flex;align-items:center;gap:14px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;"><span style="font-size:24px;">🏫</span>Hangi üniversiteler?</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Tüm üniversitelerden öğrenciler kullanabiliyor.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(108,92,231,0.22);border-radius:20px;padding:28px 32px;">
+        <div style="display:flex;align-items:center;gap:14px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;"><span style="font-size:24px;">👁️</span>Profilim herkese görünür mü?</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Sadece uygulamayı kullanan öğrenciler görebilir.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 18 — YENİ: KAMPÜS FEEDİ
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(160deg,#0A0A1A 0%,#130A1A 100%);">
+  <div style="position:absolute;width:750px;height:750px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,0.22) 0%,transparent 70%);top:-200px;right:-200px;"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(255,118,117,0.15);border:1px solid rgba(255,118,117,0.35);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF7675;z-index:5;">Kampüs Feedı</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FF7675;margin-bottom:20px;margin-top:80px;">📰 Canlı Feed</div>
+    <div style="font-family:'Sora',sans-serif;font-size:124px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:44px;">Kampüs<br><span style="color:#FF7675;">nabzı</span><br>burada.</div>
+    <!-- Feed cards -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:26px 30px;display:flex;align-items:center;gap:20px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#6C5CE7,#A29BFE);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">M</div>
+        <div style="flex:1;">
+          <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;">Mert D. · İletişim</div>
+          <div style="font-size:17px;color:rgba(255,255,255,0.55);margin-top:4px;">📸 Fotoğrafçılık kulübü kuruyorum, ilgilenir misin?</div>
+        </div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.25);">2s</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:26px 30px;display:flex;align-items:center;gap:20px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00B894,#00CEC9);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">Z</div>
+        <div style="flex:1;">
+          <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;">Zeynep A. · Hukuk</div>
+          <div style="font-size:17px;color:rgba(255,255,255,0.55);margin-top:4px;">☕ Kafe ödeviyle dolu, ses versin!</div>
+        </div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.25);">4s</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:26px 30px;display:flex;align-items:center;gap:20px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#FF7675,#FDCB6E);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">A</div>
+        <div style="flex:1;">
+          <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;">Ayşe K. · Mühendislik</div>
+          <div style="font-size:17px;color:rgba(255,255,255,0.55);margin-top:4px;">🏃 Sabah koşusuna çıkacak var mı?</div>
+        </div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.25);">6s</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:26px 30px;display:flex;align-items:center;gap:20px;">
+        <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#FDCB6E,#E17055);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">B</div>
+        <div style="flex:1;">
+          <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:#fff;">Berk S. · Tıp</div>
+          <div style="font-size:17px;color:rgba(255,255,255,0.55);margin-top:4px;">🍕 Yemekhanede masa var, buyrun!</div>
+        </div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.25);">9s</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 19 — YENİ: NEDEN CAMPUS MATE?
+════════════════════════════════════════ -->
+<div class="post" style="background:linear-gradient(145deg,#0D0B1E 0%,#1A1040 55%,#0D0B1E 100%);">
+  <div style="position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,0.3) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+  <!-- Logo -->
+  <div style="position:absolute;top:64px;left:72px;display:flex;align-items:center;gap:16px;z-index:5;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;border:1px solid rgba(255,255,255,0.15);">🎓</div>
+    <span style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:rgba(255,255,255,0.82);">Campus Mate</span>
+  </div>
+  <div style="position:absolute;top:64px;right:72px;background:rgba(108,92,231,0.2);border:1px solid rgba(108,92,231,0.45);border-radius:40px;padding:11px 24px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#A29BFE;z-index:5;">Neden Biz?</div>
+  <!-- Content -->
+  <div style="position:absolute;inset:0;z-index:5;padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A29BFE;margin-bottom:20px;margin-top:80px;">🎓 Fark Yaratan</div>
+    <div style="font-family:'Sora',sans-serif;font-size:118px;font-weight:900;letter-spacing:-7px;color:#fff;line-height:0.86;margin-bottom:52px;">Neden<br><span style="color:#A29BFE;">Campus</span><br>Mate?</div>
+    <!-- Reasons -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:44px;margin-bottom:16px;">🎯</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Sadece Kampüs</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Gereksiz gürültü yok. Sadece kendi kampüsün.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:44px;margin-bottom:16px;">⚡</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Hızlı Eşleş</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Algoritma seni en uygun kişiyle buluşturur.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:44px;margin-bottom:16px;">🆓</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Tamamen Ücretsiz</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Hiçbir özellik için ödeme yapmazsın.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(108,92,231,0.22);border-radius:24px;padding:32px;">
+        <div style="font-size:44px;margin-bottom:16px;">🛡️</div>
+        <div style="font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Güvenli Ortam</div>
+        <div style="font-size:18px;color:#8888AA;line-height:1.5;">Moderasyon ve ban sistemiyle korumalı.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /grid -->
+</div><!-- /scroll-wrap -->
+
+<p style="text-align:center;font-size:12px;color:#22223a;margin-top:16px;">19 post · 1080×1350px · Figma: Plugins → HTML to Design · Tarayıcı %100 zoom</p>
 
 </body>
 </html>
